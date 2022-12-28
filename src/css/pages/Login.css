@@ -1,0 +1,39 @@
+.contentLogin {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contentForm {
+    width: 40%;
+}
+
+.register {
+    display: flex;
+}
+
+.register p {
+    margin-right: 10px;
+}
+
+.title {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.title a {
+    color: white;
+    text-decoration: none;
+    padding: 5px 25px;
+    background-color:black;
+    border-radius: 20px;
+    transition: .3s;
+}
+
+.title a:hover {
+    transform: scale(0.90);
+} 
