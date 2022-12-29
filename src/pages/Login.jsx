@@ -61,7 +61,7 @@ const Login = () => {
                 />
                 <Label for="examplePassword">Password</Label>
                 </FormGroup>{" "}
-                <Button>Iniciar Sesión</Button>
+                <Button color="dark">Iniciar Sesión</Button>
             </Form>
         </div>
     </main>

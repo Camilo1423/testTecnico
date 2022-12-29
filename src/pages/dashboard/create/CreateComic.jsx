@@ -12,6 +12,7 @@ import {
 import Loader001 from "../../../components/loader/loader001";
 import axios from "axios";
 import { api } from "../../../helpers/api";
+import { headers } from "../../../helpers/headers";
 import "../../../css/pages/CreateProduct.css";
 
 const CreateComic = () => {
@@ -38,7 +39,8 @@ const CreateComic = () => {
   };
 
   const requesPost = async (datosSend) => {
-    const { data } = await axios.post(`${api}/producto/register`, datosSend);
+    console.log(headers)
+    const { data } = await axios.post(`${api}/producto/register`, datosSend, {headers: headers});
     return data;
   };
 
@@ -82,7 +84,7 @@ const CreateComic = () => {
             )}
           </section>
           <section className="formAccesorio">
-            <h3>Crear nuevo Comic</h3>
+            <h3>Crear nuevo comic</h3>
             <Form
               onSubmit={async (e) => {
                 e.preventDefault();
@@ -92,6 +94,10 @@ const CreateComic = () => {
                   setLoaderActive(false)
                   console.log(res)
                 })
+                .catch(() => {
+                  setLoadImage(false)
+                  setLoaderActive(false);
+                });
               }}
             >
               <FormGroup>
@@ -159,7 +165,7 @@ const CreateComic = () => {
                     <Input
                       name="cantidadPaginas"
                       placeholder="50, 129 o el numero de paginas"
-                      type="text"
+                      type="number"
                     />
                   </FormGroup>
                 </Col>
@@ -186,7 +192,7 @@ const CreateComic = () => {
                   type="text"
                 />
               </FormGroup>
-              <Button>Crear producto</Button>
+              <Button color="dark">Crear producto</Button>
             </Form>
           </section>
         </>

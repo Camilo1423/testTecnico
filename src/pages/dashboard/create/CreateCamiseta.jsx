@@ -11,8 +11,9 @@ import {
   Button,
 } from "reactstrap";
 import Loader001 from "../../../components/loader/loader001";
-import "../../../css/pages/CreateProduct.css";
 import { api } from "../../../helpers/api";
+import { headers } from "../../../helpers/headers";
+import "../../../css/pages/CreateProduct.css";
 
 const CreateCamiseta = () => {
   const [loadImage, setLoadImage] = useState(false);
@@ -39,7 +40,7 @@ const CreateCamiseta = () => {
   };
 
   const requesPost = async (datosSend) => {
-    const {data} = await axios.post(`${api}/producto/register`, datosSend)
+    const { data } = await axios.post(`${api}/producto/register`, datosSend, {headers: headers});
     return data
   }
 
@@ -93,6 +94,10 @@ const CreateCamiseta = () => {
                   setLoaderActive(false)
                   console.log(res)
                 })
+                .catch(() => {
+                  setLoadImage(false)
+                  setLoaderActive(false);
+                });
               }}
             >
               <FormGroup>
@@ -195,7 +200,7 @@ const CreateCamiseta = () => {
                   type="text"
                 />
               </FormGroup>
-              <Button>Crear producto</Button>
+              <Button color="dark">Crear producto</Button>
             </Form>
           </section>
         </>

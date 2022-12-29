@@ -1,0 +1,16 @@
+.homeContent {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+figure {
+    width: 600px;
+}
+
+figure img {
+    width: 100%;
+    height: auto;
+}

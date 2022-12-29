@@ -83,7 +83,7 @@ const Register = () => {
                 />
                 <Label for="examplePassword">Confirmacion de contraseña</Label>
                 </FormGroup>{" "}
-                <Button>Obtener cuenta</Button>
+                <Button color="dark">Obtener cuenta</Button>
             </Form>
         </div>
     </main>

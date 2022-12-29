@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
+import ProductContext from './context/ProductContext'
 import UserContext from './context/UserContext'
 import { token } from './helpers/dataUser'
 import AdminAccess from './middleware/AdminAccess'
@@ -11,6 +12,8 @@ import { Login, Register, Dashboard, Home, UserPanel } from './pages/Pages'
 
 function App() {
   const [userData, setUserData] = useState()
+
+
   useEffect(() => {
     if(token != null) setUserData(JSON.parse(localStorage.login))
   }, [])
