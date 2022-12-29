@@ -7,16 +7,15 @@ export class Comic extends Producto {
   editorial;
   constructor(
     idProducto,
+    universoFilm,
     nombreProducto,
-    precioProducto,
-    cantidadProducto,
     tipoProducto, 
-    imagenProducto,
+    image,
     cantidadPaginas,
     generoComic,
     editorial
       ) {
-    super(idProducto, nombreProducto, precioProducto, cantidadProducto, tipoProducto, imagenProducto);
+    super(idProducto, universoFilm, nombreProducto, tipoProducto, image);
     this.cantidadPaginas = cantidadPaginas;
     this.generoComic = generoComic;
     this.editorial = editorial;

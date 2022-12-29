@@ -6,16 +6,15 @@ export class Accesorios extends Producto {
     color;
     constructor(
         idProducto,
+        universoFilm,
         nombreProducto,
-        precioProducto,
-        cantidadProducto,
         tipoProducto, 
-        imagenProducto,
+        image,
         tipo,
         tamano,
         color,
     ) {
-        super(idProducto, nombreProducto, precioProducto, cantidadProducto, tipoProducto, imagenProducto)
+        super(idProducto, universoFilm, nombreProducto, tipoProducto, image)
         this.tipo = tipo;
         this.tamano = tamano;
         this.color = color;

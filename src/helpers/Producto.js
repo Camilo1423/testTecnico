@@ -1,18 +1,16 @@
-export class Product {
+export class Producto {
     idProducto;
+    universoFilm;
     nombreProducto;
-    precioProducto;
-    cantidadProducto;
     tipoProducto;
-    imagenProducto;
+    image;
 
-    constructor(idProducto, nombreProducto, precioProducto, cantidadProducto, tipoProducto, imagenProducto) {
+    constructor(idProducto, universoFilm, nombreProducto, tipoProducto, image) {
         this.idProducto = idProducto;
+        this.universoFilm = universoFilm;
         this.nombreProducto = nombreProducto;
-        this.precioProducto = precioProducto;
-        this.cantidadProducto = cantidadProducto;
         this.tipoProducto = tipoProducto;
-        this.imagenProducto = imagenProducto
+        this.image = image
 
     }
     entradaProducto() {}

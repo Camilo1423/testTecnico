@@ -1,0 +1,20 @@
+.menuOptions {
+    display: flex;
+    flex-direction: column;
+}
+
+.menuOptions ul {
+    display: flex;
+    margin: 20px auto;
+    margin-bottom: 50px;
+    list-style: none;
+}
+
+.menuOptions ul li a {
+    margin: 0 20px;
+    text-decoration: none;
+    color: white;
+    background-color: black;
+    padding: 5px 20px;
+    border-radius: 25px;
+}

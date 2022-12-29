@@ -1,24 +1,23 @@
 import { Producto } from "../helpers/Producto.js";
 
 export class Camiseta extends Producto {
-  talla;
+  tamano;
   color;
   sexo;
   marca;
   constructor(
     idProducto,
+    universoFilm,
     nombreProducto,
-    precioProducto,
-    cantidadProducto,
     tipoProducto, 
-    imagenProducto,
-    talla,
+    image,
+    tamano,
     color,
     sexo,
     marca
   ) {
-    super(idProducto, nombreProducto, precioProducto, cantidadProducto, tipoProducto, imagenProducto);
-    this.talla = talla;
+    super(idProducto, universoFilm, nombreProducto, tipoProducto, image);
+    this.tamano = tamano;
     this.color = color;
     this.sexo = sexo;
     this.marca = marca;

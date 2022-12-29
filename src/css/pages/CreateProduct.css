@@ -1,0 +1,43 @@
+.contentAccesorio {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.printImg {
+    width: 40%;
+}
+
+.formAccesorio {
+    width: 40%;
+}
+
+.contentImagen {
+    width: 100%;
+}
+
+.contentImagen img {
+    width: 100%;
+    height: auto;
+}
+
+.previsualizacion {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.previsualizacion i {
+    font-size: 140px;
+}
+
+.redSize {
+    color: #A93226;
+}
+
+.greenSize {
+    color: #28B463;
+}

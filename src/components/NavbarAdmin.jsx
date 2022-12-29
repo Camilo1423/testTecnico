@@ -22,16 +22,10 @@ const NavbarAdmin = () => {
                 <Link to="">Inicio</Link>
             </NavItem>
             <NavItem>
-                <Link to="inventario">Inventario</Link>
+                <Link to="productos">Productos</Link>
             </NavItem>
             <NavItem>
                 <Link to="register">Ingresar productos</Link>
-            </NavItem>
-            <NavItem>
-                <Link to="entradas">Entradas</Link>
-            </NavItem>
-            <NavItem>
-                <Link to="salidas">Salidas</Link>
             </NavItem>
         </Nav>
         <section className="dataUser">

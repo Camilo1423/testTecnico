@@ -8,17 +8,16 @@ export class Juguete extends Producto {
 
   constructor(
     idProducto,
+    universoFilm,
     nombreProducto,
-    precioProducto,
-    cantidadProducto,
     tipoProducto, 
-    imagenProducto,
+    image,
     tamano,
     color,
     marca
     
       ) {
-    super(idProducto, nombreProducto, precioProducto, cantidadProducto, tipoProducto, imagenProducto);
+    super(idProducto, universoFilm, nombreProducto, tipoProducto, image);
     this.tamano = tamano;
     this.color = color;
     this.marca = marca;

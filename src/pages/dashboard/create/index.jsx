@@ -1,0 +1,6 @@
+export * from './CreateAccesorio'
+export * from './CreateCamiseta'
+export * from './CreateComic'
+export * from './CreateHome'
+export * from './CreateJuguete'
+export * from './CreateVaso'
