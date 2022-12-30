@@ -1,0 +1,31 @@
+.contentEntrada {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.contentEntrada .createEntrada {
+    width: 30%;
+}
+
+.contentEntrada .tablaDatos {
+    width: 65%;
+}
+
+.btnDelete {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 30px;
+    color: white;
+    background-color: #000;
+    padding: 2px 20px;
+    border-radius: 20px;
+    transition: .3s;
+    cursor: pointer;
+}
+
+.btnDelete p {
+    margin: 0;
+    margin-left: 10px;
+}

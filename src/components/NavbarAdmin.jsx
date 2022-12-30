@@ -25,6 +25,9 @@ const NavbarAdmin = () => {
                 <Link to="productos">Productos</Link>
             </NavItem>
             <NavItem>
+                <Link to="orders">Pedidos</Link>
+            </NavItem>
+            <NavItem>
                 <Link to="register">Ingresar productos</Link>
             </NavItem>
         </Nav>

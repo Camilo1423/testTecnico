@@ -1,0 +1,30 @@
+.contentProduct {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 50px;
+}
+
+.contentProduct h2 {
+    margin-bottom: 30px;
+}
+
+.contentCards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+    width: 80%;
+    text-align: center;
+    margin: 50px auto;
+}
+
+.contentCards button a {
+    color: white;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.singleCard {
+    margin: 0 auto;
+}

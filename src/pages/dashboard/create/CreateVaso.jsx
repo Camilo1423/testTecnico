@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import {
   Form,
   Row,
@@ -12,26 +12,14 @@ import {
 import Loader001 from "../../../components/loader/loader001";
 import axios from "axios";
 import { api } from "../../../helpers/api";
-import { headers } from "../../../helpers/headers";
+import { cargarImagen, getHeaders } from "../../../helpers/headers";
 import "../../../css/pages/CreateProduct.css";
+import UserContext from "../../../context/UserContext";
 
 const CreateVaso = () => {
+  const  {userData} = useContext(UserContext)
   const [loadImage, setLoadImage] = useState(false);
   const [loaderActive, setLoaderActive] = useState(false);
-
-  const cargarImagen = (e) => {
-    const file = e.target.files;
-    if (!file) {
-      printImg.innerHTML = "";
-      return;
-    }
-    const archivo = file[0];
-    const imgUri = URL.createObjectURL(archivo);
-    setLoadImage({
-      url: imgUri,
-      size: archivo.size,
-    });
-  };
 
   const registerVaso = (e) => {
     setLoaderActive(true);
@@ -39,7 +27,7 @@ const CreateVaso = () => {
   };
 
   const requesPost = async (datosSend) => {
-    const { data } = await axios.post(`${api}/producto/register`, datosSend, {headers: headers});
+    const { data } = await axios.post(`${api}/producto/register`, datosSend, {headers: getHeaders(userData)});
     return data;
   };
 
@@ -91,7 +79,6 @@ const CreateVaso = () => {
                 await requesPost(data).then((res) => {
                   setLoadImage(false);
                   setLoaderActive(false);
-                  console.log(res);
                 })
                 .catch(() => {
                   setLoadImage(false)
@@ -104,7 +91,7 @@ const CreateVaso = () => {
                 <Input
                   name="image"
                   type="file"
-                  onChange={(e) => cargarImagen(e)}
+                  onChange={(e) => cargarImagen(e, setLoadImage)}
                 />
                 <FormText>
                   Por favor, seleccionar un archivo que no pese más de 5mb
@@ -149,11 +136,11 @@ const CreateVaso = () => {
                 </Label>
                 <Col sm={10}>
                   <Input name="tipoProducto" type="select">
+                    <option>Vasos</option>
                     <option>accesorios</option>
                     <option>camisetas</option>
                     <option>comic</option>
                     <option>Juguetes</option>
-                    <option>Vasos</option>
                   </Input>
                 </Col>
               </FormGroup>

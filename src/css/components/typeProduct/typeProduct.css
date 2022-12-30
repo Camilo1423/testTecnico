@@ -1,0 +1,59 @@
+.productContentCard {
+    width: 80%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.productContentCard .productImg {
+    width: 30%;
+    height: 100%;
+    overflow: hidden;
+}
+.productContentCard .productImg img {
+    width: 100%;
+}
+
+.productContentCard .productInformation {
+    width: 45%;
+}
+
+.productContentCard .linkAccess {
+    margin-top: 30px;
+}
+
+.productContentCard .linkAccess a {
+    margin: 0 20px;
+    color: white;
+    background-color: #000;
+    padding: 8px 40px;
+    border-radius: 20px;
+    text-decoration: none;
+    transition: .3s;
+}
+
+.productContentCard .linkAccess a:hover {
+    transform: scale(0.95);
+}
+
+.actionProduct {
+    display: flex;
+    margin: 10px 0;
+}
+
+.btnAction {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 20px;
+    color: white;
+    background-color: #000;
+    padding: 2px 20px;
+    border-radius: 20px;
+}
+
+.btnAction p {
+    margin: 0;
+    margin-left: 10px;
+}

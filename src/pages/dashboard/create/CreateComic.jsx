@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import {
   Form,
   Row,
@@ -12,26 +12,15 @@ import {
 import Loader001 from "../../../components/loader/loader001";
 import axios from "axios";
 import { api } from "../../../helpers/api";
-import { headers } from "../../../helpers/headers";
+import { getHeaders, cargarImagen } from "../../../helpers/headers";
 import "../../../css/pages/CreateProduct.css";
+import UserContext from "../../../context/UserContext";
+
 
 const CreateComic = () => {
+  const {userData} = useContext(UserContext)
   const [loadImage, setLoadImage] = useState(false)
   const [loaderActive, setLoaderActive] = useState(false)
-
-  const cargarImagen = (e) => {
-    const file = e.target.files;
-    if (!file) {
-      printImg.innerHTML = "";
-      return;
-    }
-    const archivo = file[0];
-    const imgUri = URL.createObjectURL(archivo);
-    setLoadImage({
-      url: imgUri,
-      size: archivo.size,
-    });
-  };
 
   const registerComic = (e) => {
     setLoaderActive(true);
@@ -39,8 +28,7 @@ const CreateComic = () => {
   };
 
   const requesPost = async (datosSend) => {
-    console.log(headers)
-    const { data } = await axios.post(`${api}/producto/register`, datosSend, {headers: headers});
+    const { data } = await axios.post(`${api}/producto/register`, datosSend, {headers: getHeaders(userData)});
     return data;
   };
 
@@ -87,9 +75,11 @@ const CreateComic = () => {
             <h3>Crear nuevo comic</h3>
             <Form
               onSubmit={async (e) => {
-                e.preventDefault();
+                e.preventDefault()
                 const data = registerComic(e)
-                await requesPost(data).then(res => {
+                await requesPost(data)
+                .then(res => {
+                  console.log(res)
                   setLoadImage(false)
                   setLoaderActive(false)
                   console.log(res)
@@ -105,7 +95,7 @@ const CreateComic = () => {
                 <Input
                   name="image"
                   type="file"
-                  onChange={(e) => cargarImagen(e)}
+                  onChange={(e) => cargarImagen(e , setLoadImage)}
                 />
                 <FormText>
                   Por favor, seleccionar un archivo que no pese más de 5mb
@@ -150,9 +140,9 @@ const CreateComic = () => {
                 </Label>
                 <Col sm={10}>
                   <Input name="tipoProducto" type="select">
+                    <option>comic</option>
                     <option>accesorios</option>
                     <option>camisetas</option>
-                    <option>comic</option>
                     <option>Juguetes</option>
                     <option>Vasos</option>
                   </Input>

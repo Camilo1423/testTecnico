@@ -1,0 +1,49 @@
+.singleCard {
+    width: 13rem;
+    height: 34rem;
+    overflow: hidden;
+}
+
+.singleCard .imgCard {
+    width: 100%;
+    height: 65%;
+    overflow: hidden;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.singleCard img {
+    height: 100%;
+}
+
+.textCard {
+    height: 30%;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column  ;
+}
+
+.textCard ul {
+    list-style: none;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.singleCard a {
+    margin-top: 10px;
+    text-decoration: none;
+    color: white;
+    background-color: black;
+    padding: 5px 20px;
+    border-radius: 25px;
+    transition: .3s;
+}
+
+.singleCard a:hover {
+    transform: scale(0.95);
+}

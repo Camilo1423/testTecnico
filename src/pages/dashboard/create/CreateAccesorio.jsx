@@ -1,28 +1,17 @@
-import React, {useState} from "react";
+import React, {useState, useContext} from "react";
 import { Form, Row, FormGroup, FormText, Col, Label, Input, Button } from "reactstrap";
 import Loader001 from "../../../components/loader/loader001";
 import axios from "axios";
 import { api } from "../../../helpers/api";
-import { headers } from "../../../helpers/headers";
+import { getHeaders, cargarImagen } from "../../../helpers/headers";
 import '../../../css/pages/CreateProduct.css'
+import UserContext from "../../../context/UserContext";
 
 const CreateAccesorio = () => {
+
   const [loadImage, setLoadImage] = useState(false)
   const [loaderActive, setLoaderActive] = useState(false)
-
-  const cargarImagen = (e) => {
-    const file = e.target.files
-    if(!file){
-        printImg.innerHTML = ''
-        return
-    }
-    const archivo = file[0]
-    const imgUri = URL.createObjectURL(archivo)
-    setLoadImage({
-      url: imgUri,
-      size: archivo.size
-    })
-  }
+  const {userData} = useContext(UserContext)
 
   const registerAccesorio = e => {
     setLoaderActive(true)
@@ -30,7 +19,7 @@ const CreateAccesorio = () => {
   }
 
   const requesPost = async (datosSend) => {
-    const { data } = await axios.post(`${api}/producto/register`, datosSend, {headers: headers});
+    const { data } = await axios.post(`${api}/producto/register`, datosSend, {headers: getHeaders(userData)});
     return data
   }
 
@@ -71,7 +60,6 @@ const CreateAccesorio = () => {
                 await requesPost(data).then(res => {
                   setLoadImage(false)
                   setLoaderActive(false)
-                  console.log(res)
                 })
                 .catch(() => {
                   setLoadImage(false)
@@ -81,7 +69,7 @@ const CreateAccesorio = () => {
             >
               <FormGroup>
                 <Label for="exampleFile">Carga la imagen del producto</Label>
-                <Input name="image" type="file" onChange={e => cargarImagen(e)} required/>
+                <Input name="image" type="file" onChange={e => cargarImagen(e, setLoadImage)} required/>
                 <FormText>
                   Por favor, seleccionar un archivo que no pese más de 5mb
                 </FormText>
