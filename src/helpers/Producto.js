@@ -10,7 +10,7 @@ export class Producto {
         this.universoFilm = universoFilm;
         this.nombreProducto = nombreProducto;
         this.tipoProducto = tipoProducto;
-        this.image = image
+        this.image = image;
 
     }
     entradaProducto() {}
